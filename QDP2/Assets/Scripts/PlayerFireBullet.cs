@@ -14,6 +14,8 @@ public class PlayerFireBullet : MonoBehaviour
 
     private bool firingBullet2;
 
+    public GameObject fire2Visual;
+
     bool facingRight = false;
     bool facingLeft = true;
 
@@ -30,6 +32,7 @@ public class PlayerFireBullet : MonoBehaviour
     {
         freezeForSeconds = 0.0f;
         firingBullet2 = false;
+        fire2Visual.SetActive(false);
     }
 
     // Update is called once per frame
@@ -91,6 +94,7 @@ public class PlayerFireBullet : MonoBehaviour
         //freezeForSeconds = .0f;
 
         AudioFireBig.Play(0);
+        fire2Visual.SetActive(true);
 
         rb.constraints = RigidbodyConstraints.FreezeAll;
 
@@ -115,6 +119,8 @@ public class PlayerFireBullet : MonoBehaviour
         }
 
         firingBullet2 = false;
+
+        fire2Visual.SetActive(false);
     }
 
     void Rotate(float r)
